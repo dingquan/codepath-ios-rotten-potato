@@ -19,7 +19,6 @@ class DetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.scrollView.contentSize = CGSizeMake(320, 1000)
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,6 +28,11 @@ class DetailsViewController: UIViewController {
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        
+        self.scrollView.contentSize = CGSizeMake(320, 1000)
+        var title = movie!["title"] as NSString
+        NSLog("movie title: " + title)
+        self.navigationItem.title = title
         reloadMovieDetails()
     }
     
