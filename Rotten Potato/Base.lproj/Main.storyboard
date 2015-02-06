@@ -13,31 +13,45 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="fva-Ee-rXg">
-                                <rect key="frame" x="0.0" y="64" width="320" height="485"/>
+                                <rect key="frame" x="-2" y="0.0" width="320" height="485"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="9R7-uO-Jd2">
-                                <rect key="frame" x="0.0" y="64" width="320" height="457"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.5" contentMode="scaleToFill" id="9R7-uO-Jd2">
+                                <rect key="frame" x="0.0" y="300" width="320" height="1000"/>
+                                <autoresizingMask key="autoresizingMask"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" id="rNp-DC-QBL">
-                                        <rect key="frame" x="0.0" y="147" width="320" height="1000"/>
+                                        <rect key="frame" x="0.0" y="444" width="320" height="1000"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OGU-kd-mbQ">
+                                        <rect key="frame" x="139" y="325" width="42" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IJe-7b-zbB">
+                                        <rect key="frame" x="-1916" y="325" width="4151" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <mutableString key="text">"Doug Harris (Josh Gad) is a loveable but socially awkward groom-to-be with a problem: he has no best man. With less than two weeks to go until he marries the girl of his dreams (Kaley Cuoco-Sweeting), Doug is referred to Jimmy Callahan (Kevin Hart), owner and CEO of Best Man, Inc., a company that provides flattering best men for socially challenged guys in need. What ensues is a hilarious wedding charade as they try to pull off the big con, and an unexpected budding bromance between Doug and his fake best man Jimmy. (c) Sony"</mutableString>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0SE-WT-MlN">
+                                        <rect key="frame" x="8" y="25" width="4180" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                        <mutableString key="text">"Doug Harris (Josh Gad) is a loveable but socially awkward groom-to-be with a problem: he has no best man. With less than two weeks to go until he marries the girl of his dreams (Kaley Cuoco-Sweeting), Doug is referred to Jimmy Callahan (Kevin Hart), owner and CEO of Best Man, Inc., a company that provides flattering best men for socially challenged guys in need. What ensues is a hilarious wedding charade as they try to pull off the big con, and an unexpected budding bromance between Doug and his fake best man Jimmy. (c) Sony"</mutableString>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <inset key="contentInset" minX="0.0" minY="200" maxX="0.0" maxY="0.0"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="contentInset" minX="0.0" minY="100" maxX="0.0" maxY="0.0"/>
                             </scrollView>
-                            <tabBar contentMode="scaleToFill" id="FVa-Xk-1Ai">
-                                <rect key="frame" x="-2" y="551" width="605" height="49"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <items>
-                                    <tabBarItem systemItem="favorites" id="1pW-4O-7U2"/>
-                                    <tabBarItem title="Item" id="Npu-Z1-jE4"/>
-                                </items>
-                            </tabBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -46,6 +60,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="posterImage" destination="fva-Ee-rXg" id="xki-LT-Uod"/>
+                        <outlet property="scrollView" destination="9R7-uO-Jd2" id="CX9-Oh-hnp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B5J-zN-AtL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -64,6 +79,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="495"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <activityIndicatorView key="tableFooterView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" id="YSb-VG-jpd">
+                                    <rect key="frame" x="0.0" y="165" width="320" height="20"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </activityIndicatorView>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MovieCell" rowHeight="100" id="P8o-EU-uCT" customClass="MovieTableViewCell" customModule="Rotten_Potato" customModuleProvider="target">
                                         <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
@@ -113,12 +132,17 @@
                                     <tabBarItem systemItem="more" id="akN-rg-M9Z"/>
                                 </items>
                             </tabBar>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" id="weu-5L-hjc">
+                                <rect key="frame" x="150" y="274" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="sGO-DD-0V5"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="weu-5L-hjc" id="LfA-Oe-AKt"/>
                         <outlet property="movieTable" destination="ypZ-mg-e84" id="wn3-LP-kiC"/>
                     </connections>
                 </viewController>

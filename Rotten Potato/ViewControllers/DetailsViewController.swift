@@ -14,9 +14,12 @@ class DetailsViewController: UIViewController {
 
     @IBOutlet weak var posterImage: UIImageView!
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        self.scrollView.contentSize = CGSizeMake(320, 1000)
     }
 
     override func didReceiveMemoryWarning() {
