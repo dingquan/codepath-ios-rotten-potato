@@ -35,7 +35,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IJe-7b-zbB">
                                         <rect key="frame" x="-1916" y="325" width="4151" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <mutableString key="text">"Doug Harris (Josh Gad) is a loveable but socially awkward groom-to-be with a problem: he has no best man. With less than two weeks to go until he marries the girl of his dreams (Kaley Cuoco-Sweeting), Doug is referred to Jimmy Callahan (Kevin Hart), owner and CEO of Best Man, Inc., a company that provides flattering best men for socially challenged guys in need. What ensues is a hilarious wedding charade as they try to pull off the big con, and an unexpected budding bromance between Doug and his fake best man Jimmy. (c) Sony"</mutableString>
+                                        <string key="text">"Doug Harris (Josh Gad) is a loveable but socially awkward groom-to-be with a problem: he has no best man. With less than two weeks to go until he marries the girl of his dreams (Kaley Cuoco-Sweeting), Doug is referred to Jimmy Callahan (Kevin Hart), owner and CEO of Best Man, Inc., a company that provides flattering best men for socially challenged guys in need. What ensues is a hilarious wedding charade as they try to pull off the big con, and an unexpected budding bromance between Doug and his fake best man Jimmy. (c) Sony"</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
@@ -43,7 +43,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0SE-WT-MlN">
                                         <rect key="frame" x="8" y="25" width="4180" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
-                                        <mutableString key="text">"Doug Harris (Josh Gad) is a loveable but socially awkward groom-to-be with a problem: he has no best man. With less than two weeks to go until he marries the girl of his dreams (Kaley Cuoco-Sweeting), Doug is referred to Jimmy Callahan (Kevin Hart), owner and CEO of Best Man, Inc., a company that provides flattering best men for socially challenged guys in need. What ensues is a hilarious wedding charade as they try to pull off the big con, and an unexpected budding bromance between Doug and his fake best man Jimmy. (c) Sony"</mutableString>
+                                        <string key="text">"Doug Harris (Josh Gad) is a loveable but socially awkward groom-to-be with a problem: he has no best man. With less than two weeks to go until he marries the girl of his dreams (Kaley Cuoco-Sweeting), Doug is referred to Jimmy Callahan (Kevin Hart), owner and CEO of Best Man, Inc., a company that provides flattering best men for socially challenged guys in need. What ensues is a hilarious wedding charade as they try to pull off the big con, and an unexpected budding bromance between Doug and his fake best man Jimmy. (c) Sony"</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -79,10 +79,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="495"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <activityIndicatorView key="tableFooterView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" id="YSb-VG-jpd">
-                                    <rect key="frame" x="0.0" y="165" width="320" height="20"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                </activityIndicatorView>
+                                <inset key="separatorInset" minX="2" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MovieCell" rowHeight="100" id="P8o-EU-uCT" customClass="MovieTableViewCell" customModule="Rotten_Potato" customModuleProvider="target">
                                         <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
@@ -132,8 +129,26 @@
                                     <tabBarItem systemItem="more" id="akN-rg-M9Z"/>
                                 </items>
                             </tabBar>
+                            <view hidden="YES" alpha="0.80000000000000004" contentMode="scaleToFill" id="kaw-oO-Ii8">
+                                <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="warning.png" id="wCK-1O-yS8">
+                                        <rect key="frame" x="93" y="12" width="24" height="24"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Network Error" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="X15-I6-qXY">
+                                        <rect key="frame" x="125" y="13" width="119" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" id="weu-5L-hjc">
-                                <rect key="frame" x="150" y="274" width="20" height="20"/>
+                                <rect key="frame" x="150" y="280" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
                         </subviews>
@@ -143,6 +158,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="activityIndicator" destination="weu-5L-hjc" id="LfA-Oe-AKt"/>
+                        <outlet property="errorBar" destination="kaw-oO-Ii8" id="0VY-1X-xo9"/>
                         <outlet property="movieTable" destination="ypZ-mg-e84" id="wn3-LP-kiC"/>
                     </connections>
                 </viewController>
@@ -170,6 +186,9 @@
             <point key="canvasLocation" x="362.66666666666669" y="-29.346666666666668"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="warning.png" width="256" height="256"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

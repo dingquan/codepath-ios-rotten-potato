@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		461716451A853CA2006850D8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 461716441A853CA2006850D8 /* SystemConfiguration.framework */; };
 		4647F0591A83EE1500F26093 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4647F0581A83EE1500F26093 /* AppDelegate.swift */; };
 		4647F05E1A83EE1500F26093 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4647F05C1A83EE1500F26093 /* Main.storyboard */; };
 		4647F0601A83EE1500F26093 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4647F05F1A83EE1500F26093 /* Images.xcassets */; };
@@ -18,6 +19,7 @@
 		4647F08D1A83F35300F26093 /* RottenTomatoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4647F08C1A83F35300F26093 /* RottenTomatoService.swift */; };
 		4647F08F1A83F36700F26093 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4647F08E1A83F36700F26093 /* MovieTableViewCell.swift */; };
 		4647F0921A83F4BB00F26093 /* rotten-potato.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4647F0911A83F4BB00F26093 /* rotten-potato.jpg */; };
+		467AFE5F1A8566C700B32B99 /* warning.png in Resources */ = {isa = PBXBuildFile; fileRef = 467AFE5E1A8566C700B32B99 /* warning.png */; };
 		54A755537A879CAF36DB3A48 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 90386E3D4752C6B375220806 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +35,7 @@
 
 /* Begin PBXFileReference section */
 		3B30D57C7687D45DD7E690F9 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		461716441A853CA2006850D8 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		4644D3631A844CC0000569DA /* Rotten Potato-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Rotten Potato-Bridging-Header.h"; sourceTree = "<group>"; };
 		4647F0531A83EE1500F26093 /* Rotten Potato.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rotten Potato.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4647F0571A83EE1500F26093 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +52,7 @@
 		4647F08C1A83F35300F26093 /* RottenTomatoService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RottenTomatoService.swift; path = "Rotten Potato/Services/RottenTomatoService.swift"; sourceTree = SOURCE_ROOT; };
 		4647F08E1A83F36700F26093 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MovieTableViewCell.swift; path = "Rotten Potato/Views/MovieTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		4647F0911A83F4BB00F26093 /* rotten-potato.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "rotten-potato.jpg"; sourceTree = "<group>"; };
+		467AFE5E1A8566C700B32B99 /* warning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = warning.png; sourceTree = "<group>"; };
 		74C0C64F886C796C2686F422 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		90386E3D4752C6B375220806 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -58,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				461716451A853CA2006850D8 /* SystemConfiguration.framework in Frameworks */,
 				54A755537A879CAF36DB3A48 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -175,6 +180,7 @@
 		4647F0901A83F4AE00F26093 /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				467AFE5E1A8566C700B32B99 /* warning.png */,
 				4647F0911A83F4BB00F26093 /* rotten-potato.jpg */,
 			);
 			path = resources;
@@ -183,6 +189,7 @@
 		D30E5370918A7A08AB1DD861 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				461716441A853CA2006850D8 /* SystemConfiguration.framework */,
 				90386E3D4752C6B375220806 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -279,6 +286,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				467AFE5F1A8566C700B32B99 /* warning.png in Resources */,
 				4647F0921A83F4BB00F26093 /* rotten-potato.jpg in Resources */,
 				4647F05E1A83EE1500F26093 /* Main.storyboard in Resources */,
 				4647F0631A83EE1500F26093 /* LaunchScreen.xib in Resources */,

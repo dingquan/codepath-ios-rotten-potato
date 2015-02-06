@@ -20,6 +20,8 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    @IBOutlet weak var errorBar: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -29,7 +31,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: "onRefresh", forControlEvents: UIControlEvents.ValueChanged)
         movieTable.insertSubview(refreshControl, atIndex: 0)
-
+        
         fetchMovies()
     }
     
@@ -58,6 +60,19 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("MovieCell", forIndexPath: indexPath) as MovieTableViewCell
+        
+        // change the default margin of the table divider length
+        if (cell.respondsToSelector(Selector("setPreservesSuperviewLayoutMargins:"))){
+            cell.preservesSuperviewLayoutMargins = false
+        }
+        
+        if (cell.respondsToSelector(Selector("setSeparatorInset:"))){
+            cell.separatorInset = UIEdgeInsetsMake(0, 4, 0, 0)
+        }
+        
+        if (cell.respondsToSelector(Selector("setLayoutMargins:"))){
+            cell.layoutMargins = UIEdgeInsetsZero
+        }
         
         let movie = self.movies![indexPath.row] as NSDictionary
         cell.movieTitle.text = movie["title"] as NSString
@@ -106,12 +121,17 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         self.activityIndicator.hidesWhenStopped = true
         activityIndicator.startAnimating()
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) { (response: NSURLResponse?, data: NSData?, error: NSError?) -> Void in
-            if data != nil {
+            if let error = error as NSError?{
+                println(error)
+                self.errorBar.hidden = false
+            }
+            else if data != nil {
                 var responseDictionary = NSJSONSerialization.JSONObjectWithData(data!, options: nil, error: nil) as NSDictionary
                 
                 self.movies = responseDictionary["movies"] as? NSArray
                 println(self.movies)
                 self.movieTable.reloadData();
+                self.errorBar.hidden = true
             }
             self.activityIndicator.stopAnimating()
         }
