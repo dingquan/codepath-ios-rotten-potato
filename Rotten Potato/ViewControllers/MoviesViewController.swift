@@ -11,6 +11,7 @@ import UIKit
 class MoviesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     var boxofficeMovies: [Movie] = []
     var movies:NSArray?
+    var refreshControl: UIRefreshControl!
     
     let apiBase = "http://api.rottentomatoes.com/api/public/v1.0/"
     let apiKey = "cdctmek4jpff5qbg5xazrfdf"
@@ -24,26 +25,12 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         // Do any additional setup after loading the view, typically from a nib.
 //        var movies:[Movie] = RottenTomatoService.getBoxOfficeMovies()
 //        boxofficeMovies.append(movie)
+        
+        refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: "onRefresh", forControlEvents: UIControlEvents.ValueChanged)
+        movieTable.insertSubview(refreshControl, atIndex: 0)
 
-        let boxofficeMoviesURL = apiBase + "lists/movies/box_office.json?apikey=\(apiKey)"
-        println("request url: \(boxofficeMoviesURL)")
-        
-        var url = NSURL(string: boxofficeMoviesURL)!
-        var request = NSURLRequest(URL: url)
-        
-        self.activityIndicator.hidesWhenStopped = true
-        activityIndicator.startAnimating()
-        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) { (response: NSURLResponse?, data: NSData?, error: NSError?) -> Void in
-            if data != nil {
-                var responseDictionary = NSJSONSerialization.JSONObjectWithData(data!, options: nil, error: nil) as NSDictionary
-                
-                self.movies = responseDictionary["movies"] as? NSArray
-                println(self.movies)
-                self.movieTable.reloadData();
-            }
-            self.activityIndicator.stopAnimating()
-        }
-        
+        fetchMovies()
     }
     
     override func didReceiveMemoryWarning() {
@@ -101,6 +88,32 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
                 let movie = self.movies![row] as NSDictionary
                 detailsViewController.movie = movie
             }
+        }
+    }
+    
+    func onRefresh(){
+        fetchMovies()
+        self.refreshControl.endRefreshing()
+    }
+    
+    func fetchMovies(){
+        let boxofficeMoviesURL = apiBase + "lists/movies/box_office.json?apikey=\(apiKey)"
+        println("request url: \(boxofficeMoviesURL)")
+        
+        var url = NSURL(string: boxofficeMoviesURL)!
+        var request = NSURLRequest(URL: url)
+        
+        self.activityIndicator.hidesWhenStopped = true
+        activityIndicator.startAnimating()
+        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) { (response: NSURLResponse?, data: NSData?, error: NSError?) -> Void in
+            if data != nil {
+                var responseDictionary = NSJSONSerialization.JSONObjectWithData(data!, options: nil, error: nil) as NSDictionary
+                
+                self.movies = responseDictionary["movies"] as? NSArray
+                println(self.movies)
+                self.movieTable.reloadData();
+            }
+            self.activityIndicator.stopAnimating()
         }
     }
 }
