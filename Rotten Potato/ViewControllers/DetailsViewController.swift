@@ -20,7 +20,7 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var rating: UILabel!
     @IBOutlet weak var synopsis: UILabel!
 
-    @IBOutlet weak var fillerView: UIView!
+    @IBOutlet weak var background: UIView!
     @IBOutlet weak var containerView: UIView!
     
     override func viewDidLoad() {
@@ -81,8 +81,13 @@ class DetailsViewController: UIViewController {
         for view:UIView in self.scrollView.subviews as [UIView] {
             contentRect = CGRectUnion(contentRect, view.frame);
         }
-        self.scrollView.contentSize.height = contentRect.size.height;
         
+        var backgroundFrame = self.background.frame
+        backgroundFrame.size.height = contentRect.height
+        self.background.frame = backgroundFrame
+
+        self.scrollView.contentSize.height = contentRect.size.height
+
         println(self.scrollView.contentSize)
     }
 }

@@ -16,14 +16,19 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.5" contentMode="scaleToFill" alwaysBounceVertical="YES" id="9R7-uO-Jd2">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" id="9R7-uO-Jd2">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <view alpha="0.79999999999999982" contentMode="scaleToFill" id="WoF-Gg-I94">
+                                    <view contentMode="scaleToFill" id="WoF-Gg-I94">
                                         <rect key="frame" x="0.0" y="280" width="320" height="224"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
+                                            <view alpha="0.79999999999999982" contentMode="scaleToFill" id="vQU-MJ-5YK">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="224"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mzH-1o-4hj">
                                                 <rect key="frame" x="15" y="10" width="289" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -53,11 +58,6 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
-                                    <view contentMode="scaleToFill" id="BNP-1J-vCc">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="280"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                 </subviews>
@@ -70,8 +70,8 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="background" destination="vQU-MJ-5YK" id="2Nh-hL-l0e"/>
                         <outlet property="containerView" destination="WoF-Gg-I94" id="kLL-x0-sLl"/>
-                        <outlet property="fillerView" destination="BNP-1J-vCc" id="SaQ-8i-Jxa"/>
                         <outlet property="movieTitle" destination="mzH-1o-4hj" id="h70-R8-Gs1"/>
                         <outlet property="posterImage" destination="fva-Ee-rXg" id="xki-LT-Uod"/>
                         <outlet property="rating" destination="TDn-S0-eph" id="Maw-HX-m0E"/>
@@ -142,8 +142,8 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <items>
-                                    <tabBarItem systemItem="favorites" id="rse-Yb-CFb"/>
-                                    <tabBarItem systemItem="more" id="akN-rg-M9Z"/>
+                                    <tabBarItem selectedImage="movie" systemItem="favorites" id="rse-Yb-CFb"/>
+                                    <tabBarItem selectedImage="dvd" systemItem="recents" id="akN-rg-M9Z"/>
                                 </items>
                             </tabBar>
                             <view hidden="YES" alpha="0.80000000000000004" contentMode="scaleToFill" id="kaw-oO-Ii8">
@@ -204,6 +204,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="dvd" width="30" height="30"/>
+        <image name="movie" width="30" height="30"/>
         <image name="warning.png" width="256" height="256"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
