@@ -13,44 +13,55 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="fva-Ee-rXg">
-                                <rect key="frame" x="-2" y="64" width="339" height="457"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.5" contentMode="scaleToFill" id="9R7-uO-Jd2">
-                                <rect key="frame" x="0.0" y="298" width="327" height="1002"/>
-                                <autoresizingMask key="autoresizingMask"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.5" contentMode="scaleToFill" alwaysBounceVertical="YES" id="9R7-uO-Jd2">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" id="rNp-DC-QBL">
-                                        <rect key="frame" x="0.0" y="446" width="320" height="1000"/>
-                                        <autoresizingMask key="autoresizingMask"/>
+                                    <view alpha="0.79999999999999982" contentMode="scaleToFill" id="WoF-Gg-I94">
+                                        <rect key="frame" x="0.0" y="280" width="320" height="224"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mzH-1o-4hj">
+                                                <rect key="frame" x="15" y="10" width="289" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oBp-zk-6Bk">
+                                                <rect key="frame" x="15" y="30" width="289" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TDn-S0-eph">
+                                                <rect key="frame" x="15" y="50" width="289" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Xbu-ZG-pSh">
+                                                <rect key="frame" x="15" y="70" width="289" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" id="BNP-1J-vCc">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="280"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OGU-kd-mbQ">
-                                        <rect key="frame" x="139" y="327" width="42" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IJe-7b-zbB">
-                                        <rect key="frame" x="-1916" y="327" width="4151" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <string key="text">"Doug Harris (Josh Gad) is a loveable but socially awkward groom-to-be with a problem: he has no best man. With less than two weeks to go until he marries the girl of his dreams (Kaley Cuoco-Sweeting), Doug is referred to Jimmy Callahan (Kevin Hart), owner and CEO of Best Man, Inc., a company that provides flattering best men for socially challenged guys in need. What ensues is a hilarious wedding charade as they try to pull off the big con, and an unexpected budding bromance between Doug and his fake best man Jimmy. (c) Sony"</string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0SE-WT-MlN">
-                                        <rect key="frame" x="8" y="27" width="4180" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
-                                        <string key="text">"Doug Harris (Josh Gad) is a loveable but socially awkward groom-to-be with a problem: he has no best man. With less than two weeks to go until he marries the girl of his dreams (Kaley Cuoco-Sweeting), Doug is referred to Jimmy Callahan (Kevin Hart), owner and CEO of Best Man, Inc., a company that provides flattering best men for socially challenged guys in need. What ensues is a hilarious wedding charade as they try to pull off the big con, and an unexpected budding bromance between Doug and his fake best man Jimmy. (c) Sony"</string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <inset key="contentInset" minX="0.0" minY="100" maxX="0.0" maxY="0.0"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -59,8 +70,14 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="containerView" destination="WoF-Gg-I94" id="kLL-x0-sLl"/>
+                        <outlet property="fillerView" destination="BNP-1J-vCc" id="SaQ-8i-Jxa"/>
+                        <outlet property="movieTitle" destination="mzH-1o-4hj" id="h70-R8-Gs1"/>
                         <outlet property="posterImage" destination="fva-Ee-rXg" id="xki-LT-Uod"/>
+                        <outlet property="rating" destination="TDn-S0-eph" id="Maw-HX-m0E"/>
+                        <outlet property="score" destination="oBp-zk-6Bk" id="jrB-mQ-UBV"/>
                         <outlet property="scrollView" destination="9R7-uO-Jd2" id="CX9-Oh-hnp"/>
+                        <outlet property="synopsis" destination="Xbu-ZG-pSh" id="Abj-za-wUp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B5J-zN-AtL" userLabel="First Responder" sceneMemberID="firstResponder"/>

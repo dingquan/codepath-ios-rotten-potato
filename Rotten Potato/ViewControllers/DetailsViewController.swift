@@ -15,6 +15,13 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var posterImage: UIImageView!
     
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var movieTitle: UILabel!
+    @IBOutlet weak var score: UILabel!
+    @IBOutlet weak var rating: UILabel!
+    @IBOutlet weak var synopsis: UILabel!
+
+    @IBOutlet weak var fillerView: UIView!
+    @IBOutlet weak var containerView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,9 +52,38 @@ class DetailsViewController: UIViewController {
         detailedUrl = detailedUrl.stringByReplacingOccurrencesOfString("_tmb", withString: "_ori")
         let imageUrl = NSURL(string: detailedUrl)
         self.posterImage.setImageWithURL(imageUrl)
-//        self.score.text = "blahblah"
-//        self.movieTitle.text = movie?.title
-//        self.synopsis.text = movie?.synopsis
+        
+        let year = movie!["year"] as Int
+        let name = movie!["title"] as String
+        println("year: \(year), title: \(name)")
+        self.movieTitle.text = "\(name) (\(year))"
+        self.rating.text = movie!["mpaa_rating"] as NSString
+        let ratings = movie!["ratings"] as NSDictionary
+        let criticsScore = ratings["critics_score"] as NSInteger
+        let audienceScore = ratings["audience_score"] as NSInteger
+        
+        self.score.text = "Critics Score: \(criticsScore), Audience Score: \(audienceScore)"
+        self.synopsis.text = movie!["synopsis"] as NSString
+        self.synopsis.sizeToFit()
+        
+        var containerRect = CGRectZero
+        for view:UIView in self.containerView.subviews as [UIView] {
+            containerRect = CGRectUnion(containerRect, view.frame)
+        }
+        var newFrame = self.containerView.frame
+//        newFrame.size.width = containerRect.width
+        newFrame.size.height = containerRect.height + 10
+        self.containerView.frame = newFrame
+
+        // readjust the scroll view size based on the size of the synopsis
+        println(self.scrollView.contentSize)
+        var contentRect = CGRectZero
+        for view:UIView in self.scrollView.subviews as [UIView] {
+            contentRect = CGRectUnion(contentRect, view.frame);
+        }
+        self.scrollView.contentSize.height = contentRect.size.height;
+        
+        println(self.scrollView.contentSize)
     }
 }
 

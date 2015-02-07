@@ -76,8 +76,21 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         
         let movie = self.movies![indexPath.row] as NSDictionary
         cell.movieTitle.text = movie["title"] as NSString
-        cell.synopsis.text = movie["synopsis"] as NSString
-        cell.synopsis.sizeToFit()
+        let synopsis = movie["synopsis"] as NSString
+        let mpaaRating = movie["mpaa_rating"] as NSString
+        
+        // make mpaa-rating bold 
+        var regularFont = UIFont.systemFontOfSize(12)
+        var boldFont = UIFont.boldSystemFontOfSize(12)
+        let attributes :Dictionary = [NSFontAttributeName: regularFont]
+        let subAttributes :Dictionary = [NSFontAttributeName: boldFont]
+        
+        let ratingAndSynopsis = "\(mpaaRating) \(synopsis)"
+        var attrString = NSMutableAttributedString(string: ratingAndSynopsis, attributes: attributes)
+//        attrString.addAttribute(NSFontAttributeName, value: subAttributes, range: NSMakeRange(0, mpaaRating.length))
+        
+        cell.synopsis.attributedText = attrString
+//        cell.synopsis.sizeToFit()
         let imageUrls = movie["posters"] as NSDictionary
         let thumbUrl = imageUrls["thumbnail"] as NSString
         cell.posterImage.setImageWithURL(NSURL(string: thumbUrl))

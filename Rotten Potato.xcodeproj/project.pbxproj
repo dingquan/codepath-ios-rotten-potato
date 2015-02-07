@@ -41,7 +41,7 @@
 		4647F0571A83EE1500F26093 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4647F0581A83EE1500F26093 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4647F05D1A83EE1500F26093 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		4647F05F1A83EE1500F26093 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		4647F05F1A83EE1500F26093 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../Images.xcassets; sourceTree = "<group>"; };
 		4647F0621A83EE1500F26093 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		4647F0681A83EE1500F26093 /* Rotten PotatoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Rotten PotatoTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4647F06D1A83EE1500F26093 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -107,8 +107,6 @@
 				4647F07C1A83EF3000F26093 /* Views */,
 				4647F0581A83EE1500F26093 /* AppDelegate.swift */,
 				4647F05C1A83EE1500F26093 /* Main.storyboard */,
-				4647F05F1A83EE1500F26093 /* Images.xcassets */,
-				4647F0611A83EE1500F26093 /* LaunchScreen.xib */,
 				4647F0561A83EE1500F26093 /* Supporting Files */,
 				4644D3631A844CC0000569DA /* Rotten Potato-Bridging-Header.h */,
 			);
@@ -180,6 +178,8 @@
 		4647F0901A83F4AE00F26093 /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				4647F05F1A83EE1500F26093 /* Images.xcassets */,
+				4647F0611A83EE1500F26093 /* LaunchScreen.xib */,
 				467AFE5E1A8566C700B32B99 /* warning.png */,
 				4647F0911A83F4BB00F26093 /* rotten-potato.jpg */,
 			);
@@ -383,6 +383,7 @@
 				4647F0621A83EE1500F26093 /* Base */,
 			);
 			name = LaunchScreen.xib;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
