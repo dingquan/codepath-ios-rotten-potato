@@ -82,7 +82,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B5J-zN-AtL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1811" y="-431"/>
+            <point key="canvasLocation" x="2089" y="-102"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="IaJ-hk-krp">
@@ -95,8 +95,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="cL6-qV-jrp" kind="relationship" relationship="viewControllers" id="klr-3B-YpG"/>
-                        <segue destination="Mad-Jj-BM7" kind="relationship" relationship="viewControllers" id="efp-g7-Y5d"/>
+                        <segue destination="UQd-U3-tBR" kind="relationship" relationship="viewControllers" id="klr-3B-YpG"/>
+                        <segue destination="NWg-JM-6fJ" kind="relationship" relationship="viewControllers" id="efp-g7-Y5d"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZXb-LC-NUF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -106,15 +106,16 @@
         <!--DVDs View Controller-->
         <scene sceneID="Hb2-yh-Gks">
             <objects>
-                <viewController id="Mad-Jj-BM7" userLabel="DVDs View Controller" customClass="DVDsViewController" customModule="Rotten_Potato" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="Mad-Jj-BM7" userLabel="DVDs View Controller" customClass="DVDsViewController" customModule="Rotten_Potato" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0X0-eU-lJl">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="1" sectionFooterHeight="1" id="NMN-2e-C2E">
                                 <rect key="frame" x="0.0" y="64" width="320" height="455"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <autoresizingMask key="autoresizingMask"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="separatorInset" minX="2" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" reuseIdentifier="DVDCell" rowHeight="100" id="pOc-RP-Z1S" userLabel="DVDCell" customClass="MovieTableViewCell" customModule="Rotten_Potato" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="234" width="320" height="100"/>
@@ -146,6 +147,7 @@
                                             <outlet property="movieTitle" destination="vrp-5y-E3y" id="e6L-a2-sfA"/>
                                             <outlet property="posterImage" destination="9Sb-lF-37i" id="00H-oi-wCa"/>
                                             <outlet property="synopsis" destination="le8-33-vuD" id="f2q-7b-wzG"/>
+                                            <segue destination="E6p-3e-tau" kind="push" identifier="showDvdDetails" id="IF4-GQ-6uI"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -154,7 +156,7 @@
                                     <outlet property="delegate" destination="Mad-Jj-BM7" id="5Xi-GS-5sc"/>
                                 </connections>
                             </tableView>
-                            <view hidden="YES" alpha="0.80000001192092896" contentMode="scaleToFill" id="Y5m-4B-mes">
+                            <view hidden="YES" alpha="0.80000000000000004" contentMode="scaleToFill" id="Y5m-4B-mes">
                                 <rect key="frame" x="0.0" y="64" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -176,17 +178,10 @@
                                 <rect key="frame" x="150" y="274" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
-                            <navigationBar contentMode="scaleToFill" id="i0r-oW-ZfV">
-                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="DVDs" id="Poa-ci-chZ"/>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="DVDs" image="dvd" id="Yvu-g9-irw"/>
+                    <navigationItem key="navigationItem" title="DVDs" id="dtU-md-uyO"/>
                     <connections>
                         <outlet property="activityIndicator" destination="EgI-IV-src" id="p2D-1X-bNV"/>
                         <outlet property="dvdTable" destination="NMN-2e-C2E" id="1Dm-wu-hHA"/>
@@ -195,7 +190,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vBd-Bf-5gC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1054" y="143"/>
+            <point key="canvasLocation" x="1593" y="143"/>
         </scene>
         <!--Movies View Controller-->
         <scene sceneID="lQC-st-KQc">
@@ -208,7 +203,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="1" sectionFooterHeight="1" id="ypZ-mg-e84">
                                 <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="2" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" reuseIdentifier="MovieCell" rowHeight="100" id="P8o-EU-uCT" customClass="MovieTableViewCell" customModule="Rotten_Potato" customModuleProvider="target">
@@ -240,7 +235,7 @@
                                             <outlet property="movieTitle" destination="1O0-3r-EkG" id="4L7-u8-2ME"/>
                                             <outlet property="posterImage" destination="cdz-4T-jQa" id="YuL-hK-im9"/>
                                             <outlet property="synopsis" destination="6hd-Dt-Exn" id="5Zb-wx-nJQ"/>
-                                            <segue destination="E6p-3e-tau" kind="push" identifier="showDetails" id="shQ-OQ-hnZ"/>
+                                            <segue destination="E6p-3e-tau" kind="push" identifier="showMovieDetails" id="shQ-OQ-hnZ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -272,17 +267,9 @@
                                 <rect key="frame" x="150" y="280" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
-                            <navigationBar contentMode="scaleToFill" id="NcT-vi-dHE">
-                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="Movies" id="1Az-k3-VSY"/>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Movies" image="movie" id="8XS-IV-qEJ"/>
                     <navigationItem key="navigationItem" title="Movies" id="sGO-DD-0V5"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
@@ -293,7 +280,45 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Zg-MW-tK4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1593" y="-513"/>
+        </scene>
+        <!--Movies-->
+        <scene sceneID="FpV-O3-VU0">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UQd-U3-tBR" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Movies" image="movie" id="8XS-IV-qEJ"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="g0h-mv-8g9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="cL6-qV-jrp" kind="relationship" relationship="rootViewController" id="iWj-qN-OWu"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6aT-Wy-zxZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
             <point key="canvasLocation" x="1061" y="-513"/>
+        </scene>
+        <!--DVDs-->
+        <scene sceneID="km7-5y-1ne">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NWg-JM-6fJ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="DVDs" image="dvd" id="Yvu-g9-irw"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Fzz-G1-eiv">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Mad-Jj-BM7" kind="relationship" relationship="rootViewController" id="D4F-fu-3Do"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O3Z-1m-jsP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1054" y="143"/>
         </scene>
     </scenes>
     <resources>
@@ -306,4 +331,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="shQ-OQ-hnZ"/>
+    </inferredMetricsTieBreakers>
 </document>

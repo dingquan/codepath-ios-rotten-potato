@@ -107,7 +107,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        if segue.identifier == "showDetails"{
+        if segue.identifier == "showMovieDetails"{
             if let detailsViewController = segue.destinationViewController as? DetailsViewController{
                 let row = self.movieTable!.indexPathForSelectedRow()!.row
                 let movie = self.movies![row] as NSDictionary

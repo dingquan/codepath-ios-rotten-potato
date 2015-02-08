@@ -89,7 +89,7 @@ class DVDsViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        if segue.identifier == "showDetails"{
+        if segue.identifier == "showDvdDetails"{
             if let detailsViewController = segue.destinationViewController as? DetailsViewController{
                 let row = self.dvdTable!.indexPathForSelectedRow()!.row
                 let movie = self.dvds![row] as NSDictionary

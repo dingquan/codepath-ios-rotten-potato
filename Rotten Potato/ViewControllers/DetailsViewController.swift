@@ -9,7 +9,6 @@
 import UIKit
 
 class DetailsViewController: UIViewController {
-//    var movie:Movie?
     var movie:NSDictionary?
 
     @IBOutlet weak var posterImage: UIImageView!
