@@ -1,46 +1,38 @@
 //
-//  TableViewController.swift
+//  DVDsViewController.swift
 //  Rotten Potato
 //
-//  Created by Ding, Quan on 2/4/15.
+//  Created by Ding, Quan on 2/7/15.
 //  Copyright (c) 2015 Codepath. All rights reserved.
 //
 
 import UIKit
 
-class MoviesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
-    var movies:NSArray?
+class DVDsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    var dvds:NSArray?
     var refreshControl: UIRefreshControl!
     
     let apiBase = "http://api.rottentomatoes.com/api/public/v1.0/"
     let apiKey = "cdctmek4jpff5qbg5xazrfdf"
     
-    @IBOutlet weak var movieTable: UITableView!
-    
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    
+    @IBOutlet weak var dvdTable: UITableView!
     @IBOutlet weak var errorBar: UIView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
+
+        // Do any additional setup after loading the view.
         refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: "onRefresh", forControlEvents: UIControlEvents.ValueChanged)
-        movieTable.insertSubview(refreshControl, atIndex: 0)
+        dvdTable.insertSubview(refreshControl, atIndex: 0)
         
-        fetchMovies()
+        fetchDvds()
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    override func viewWillDisappear(animated: Bool) {
-        
-//        self.navigationController?.navigationBarHidden = true
-        
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -48,7 +40,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let count = self.movies?.count{
+        if let count = self.dvds?.count{
             return count
         } else {
             return 0
@@ -56,7 +48,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("MovieCell", forIndexPath: indexPath) as MovieTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("DVDCell", forIndexPath: indexPath) as MovieTableViewCell
         
         // change the default margin of the table divider length
         if (cell.respondsToSelector(Selector("setPreservesSuperviewLayoutMargins:"))){
@@ -71,12 +63,12 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
             cell.layoutMargins = UIEdgeInsetsZero
         }
         
-        let movie = self.movies![indexPath.row] as NSDictionary
+        let movie = self.dvds![indexPath.row] as NSDictionary
         cell.movieTitle.text = movie["title"] as NSString
         let synopsis = movie["synopsis"] as NSString
         let mpaaRating = movie["mpaa_rating"] as NSString
         
-        // make mpaa-rating bold 
+        // make mpaa-rating bold
         var regularFont = UIFont.systemFontOfSize(12)
         var boldFont = UIFont.boldSystemFontOfSize(12)
         let attributes :Dictionary = [NSFontAttributeName: regularFont]
@@ -84,10 +76,10 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         
         let ratingAndSynopsis = "\(mpaaRating) \(synopsis)"
         var attrString = NSMutableAttributedString(string: ratingAndSynopsis, attributes: attributes)
-//        attrString.addAttribute(NSFontAttributeName, value: subAttributes, range: NSMakeRange(0, mpaaRating.length))
+        //        attrString.addAttribute(NSFontAttributeName, value: subAttributes, range: NSMakeRange(0, mpaaRating.length))
         
         cell.synopsis.attributedText = attrString
-//        cell.synopsis.sizeToFit()
+        //        cell.synopsis.sizeToFit()
         let imageUrls = movie["posters"] as NSDictionary
         let thumbUrl = imageUrls["thumbnail"] as NSString
         cell.posterImage.setImageWithURL(NSURL(string: thumbUrl))
@@ -95,37 +87,27 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         return cell
     }
     
-//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        let movie = boxofficeMovies[indexPath.row] as Movie
-//        if let detailsViewController = segue.destinationViewController as? DetailsViewController{
-//            let row = self.tableView!.indexPathForSelectedRow()!.row
-//            let movie = boxofficeMovies[row] as Movie
-//            detailsViewController.movie = movie
-//        }
-//        self.performSegueWithIdentifier("showDetails", sender: indexPath)
-//    }
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if segue.identifier == "showDetails"{
             if let detailsViewController = segue.destinationViewController as? DetailsViewController{
-                let row = self.movieTable!.indexPathForSelectedRow()!.row
-                let movie = self.movies![row] as NSDictionary
+                let row = self.dvdTable!.indexPathForSelectedRow()!.row
+                let movie = self.dvds![row] as NSDictionary
                 detailsViewController.movie = movie
             }
         }
     }
     
     func onRefresh(){
-        fetchMovies()
+        fetchDvds()
         self.refreshControl.endRefreshing()
     }
     
-    func fetchMovies(){
-        let boxofficeMoviesURL = apiBase + "lists/movies/box_office.json?apikey=\(apiKey)"
-        println("request url: \(boxofficeMoviesURL)")
+    func fetchDvds(){
+        let dvdsURL = apiBase + "lists/dvds/top_rentals.json?apikey=\(apiKey)"
+        println("request url: \(dvdsURL)")
         
-        var url = NSURL(string: boxofficeMoviesURL)!
+        var url = NSURL(string: dvdsURL)!
         var request = NSURLRequest(URL: url)
         
         self.activityIndicator.hidesWhenStopped = true
@@ -138,12 +120,23 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
             else if data != nil {
                 var responseDictionary = NSJSONSerialization.JSONObjectWithData(data!, options: nil, error: nil) as NSDictionary
                 
-                self.movies = responseDictionary["movies"] as? NSArray
-                println(self.movies)
-                self.movieTable.reloadData();
+                self.dvds = responseDictionary["movies"] as? NSArray
+                println(self.dvds)
+                self.dvdTable.reloadData();
                 self.errorBar.hidden = true
             }
             self.activityIndicator.stopAnimating()
         }
     }
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
 }

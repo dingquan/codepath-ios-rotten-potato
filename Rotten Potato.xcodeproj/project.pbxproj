@@ -20,6 +20,7 @@
 		4647F08F1A83F36700F26093 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4647F08E1A83F36700F26093 /* MovieTableViewCell.swift */; };
 		4647F0921A83F4BB00F26093 /* rotten-potato.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4647F0911A83F4BB00F26093 /* rotten-potato.jpg */; };
 		467AFE5F1A8566C700B32B99 /* warning.png in Resources */ = {isa = PBXBuildFile; fileRef = 467AFE5E1A8566C700B32B99 /* warning.png */; };
+		46A87B5A1A8727150036B893 /* DVDsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A87B591A8727150036B893 /* DVDsViewController.swift */; };
 		54A755537A879CAF36DB3A48 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 90386E3D4752C6B375220806 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +54,7 @@
 		4647F08E1A83F36700F26093 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MovieTableViewCell.swift; path = "Rotten Potato/Views/MovieTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		4647F0911A83F4BB00F26093 /* rotten-potato.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "rotten-potato.jpg"; sourceTree = "<group>"; };
 		467AFE5E1A8566C700B32B99 /* warning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = warning.png; sourceTree = "<group>"; };
+		46A87B591A8727150036B893 /* DVDsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DVDsViewController.swift; path = "Rotten Potato/ViewControllers/DVDsViewController.swift"; sourceTree = SOURCE_ROOT; };
 		74C0C64F886C796C2686F422 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		90386E3D4752C6B375220806 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -170,6 +172,7 @@
 			children = (
 				4647F0861A83F09300F26093 /* DetailsViewController.swift */,
 				4647F0871A83F09300F26093 /* MoviesViewController.swift */,
+				46A87B591A8727150036B893 /* DVDsViewController.swift */,
 			);
 			name = ViewControllers;
 			path = "../../Rotten Potato old/Rotten Potato/ViewControllers";
@@ -347,6 +350,7 @@
 				4647F0891A83F09300F26093 /* MoviesViewController.swift in Sources */,
 				4647F0881A83F09300F26093 /* DetailsViewController.swift in Sources */,
 				4647F0591A83EE1500F26093 /* AppDelegate.swift in Sources */,
+				46A87B5A1A8727150036B893 /* DVDsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
