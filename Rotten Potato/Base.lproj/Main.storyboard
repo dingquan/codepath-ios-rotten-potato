@@ -17,7 +17,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" id="9R7-uO-Jd2">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="456"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" id="WoF-Gg-I94">
@@ -208,8 +208,19 @@
                                     <outlet property="delegate" destination="cL6-qV-jrp" id="XYw-of-6KN"/>
                                 </connections>
                             </searchBar>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" id="kbe-EB-eC2">
+                                <rect key="frame" x="60" y="118" width="200" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="List View"/>
+                                    <segment title="Grid View"/>
+                                </segments>
+                                <connections>
+                                    <action selector="indexChanged:" destination="cL6-qV-jrp" eventType="valueChanged" id="XIM-Cs-YvC"/>
+                                </connections>
+                            </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="1" sectionFooterHeight="1" id="ypZ-mg-e84">
-                                <rect key="frame" x="0.0" y="108" width="320" height="460"/>
+                                <rect key="frame" x="0.0" y="156" width="320" height="363"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="2" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -253,6 +264,50 @@
                                     <outlet property="delegate" destination="cL6-qV-jrp" id="Tif-Cr-nW9"/>
                                 </connections>
                             </tableView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="uLf-OI-SMr">
+                                <rect key="frame" x="0.0" y="156" width="320" height="412"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="UKD-mN-dUy">
+                                    <size key="itemSize" width="128" height="200"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="movieGridCell" id="hDe-gg-RQw" customClass="MovieCollectionViewCell" customModule="Rotten_Potato" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="200"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="ljo-Fz-aIV">
+                                                    <rect key="frame" x="0.0" y="8" width="128" height="140"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cQq-ta-t72">
+                                                    <rect key="frame" x="8" y="151" width="112" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <connections>
+                                            <outlet property="movieTitle" destination="cQq-ta-t72" id="dpz-vQ-SAw"/>
+                                            <outlet property="posterImage" destination="ljo-Fz-aIV" id="fBe-gn-ZNn"/>
+                                            <segue destination="E6p-3e-tau" kind="push" identifier="gridShowDetails" id="Iyl-il-VO2"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="cL6-qV-jrp" id="nDH-fd-NyU"/>
+                                    <outlet property="delegate" destination="cL6-qV-jrp" id="f02-lg-Pxg"/>
+                                </connections>
+                            </collectionView>
                             <view hidden="YES" alpha="0.80000000000000004" contentMode="scaleToFill" id="kaw-oO-Ii8">
                                 <rect key="frame" x="0.0" y="64" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -283,6 +338,8 @@
                     <connections>
                         <outlet property="activityIndicator" destination="weu-5L-hjc" id="LfA-Oe-AKt"/>
                         <outlet property="errorBar" destination="kaw-oO-Ii8" id="0VY-1X-xo9"/>
+                        <outlet property="listGridSegmentCtrl" destination="kbe-EB-eC2" id="tXL-9l-WFW"/>
+                        <outlet property="movieGrid" destination="uLf-OI-SMr" id="8kh-vn-0Kz"/>
                         <outlet property="movieSearchBar" destination="VHi-2w-YzH" id="Fo6-Gb-LXE"/>
                         <outlet property="movieTable" destination="ypZ-mg-e84" id="wn3-LP-kiC"/>
                     </connections>
@@ -341,6 +398,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="shQ-OQ-hnZ"/>
+        <segue reference="Iyl-il-VO2"/>
     </inferredMetricsTieBreakers>
 </document>

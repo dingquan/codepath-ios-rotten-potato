@@ -8,7 +8,8 @@
 
 import UIKit
 
-class MoviesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate{
+class MoviesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
+    
     var movies:NSArray?
     var searchResult:NSArray?
     var inSearch:Bool = false
@@ -18,12 +19,27 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     let apiBase = "http://api.rottentomatoes.com/api/public/v1.0/"
     let apiKey = "cdctmek4jpff5qbg5xazrfdf"
     
+    @IBOutlet weak var listGridSegmentCtrl: UISegmentedControl!
     @IBOutlet weak var movieTable: UITableView!
+    @IBOutlet weak var movieGrid: UICollectionView!
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     @IBOutlet weak var errorBar: UIView!
     @IBOutlet weak var movieSearchBar: UISearchBar!
+    
+    @IBAction func indexChanged(sender: AnyObject) {
+        switch listGridSegmentCtrl.selectedSegmentIndex{
+        case 0:
+            movieGrid.hidden = true
+            movieTable.hidden = false
+        case 1:
+            movieGrid.hidden = false
+            movieTable.hidden = true
+        default:
+            break
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +49,8 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         refreshControl.addTarget(self, action: "onRefresh", forControlEvents: UIControlEvents.ValueChanged)
         movieTable.insertSubview(refreshControl, atIndex: 0)
         
+        movieTable.hidden = false
+        movieGrid.hidden = true
         fetchMovies()
     }
     
@@ -51,7 +69,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func getItemCount() -> Int {
         if (inSearch == true){
             if let count = self.searchResult?.count {
                 return count
@@ -67,6 +85,10 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
                 return 0
             }
         }
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return getItemCount()
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -136,16 +158,28 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
 //    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
-        if segue.identifier == "showMovieDetails"{
+        var movie:NSDictionary
+        if segue.identifier == "showMovieDetails" {
             if let detailsViewController = segue.destinationViewController as? DetailsViewController{
                 let row = self.movieTable!.indexPathForSelectedRow()!.row
-                var movie:NSDictionary
+
                 if !inSearch {
                     movie = self.movies![row] as NSDictionary
                 }
                 else {
                     movie = self.searchResult![row] as NSDictionary
+                }
+                detailsViewController.movie = movie
+            }
+        }
+        else if segue.identifier == "gridShowDetails" {
+            if let detailsViewController = segue.destinationViewController as? DetailsViewController{
+                let indexPath = self.movieGrid!.indexPathsForSelectedItems().last as NSIndexPath
+                if !inSearch {
+                    movie = self.movies![indexPath.row] as NSDictionary
+                }
+                else {
+                    movie = self.searchResult![indexPath.row] as NSDictionary
                 }
                 detailsViewController.movie = movie
             }
@@ -177,7 +211,8 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
                 
                 self.movies = responseDictionary["movies"] as? NSArray
                 println(self.movies)
-                self.movieTable.reloadData();
+                self.movieTable.reloadData()
+                self.movieGrid.reloadData()
                 self.errorBar.hidden = true
             }
             self.activityIndicator.stopAnimating()
@@ -204,7 +239,8 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
                 
                 self.searchResult = responseDictionary["movies"] as? NSArray
                 println(self.searchResult)
-                self.movieTable.reloadData();
+                self.movieTable.reloadData()
+                self.movieGrid.reloadData()
                 self.errorBar.hidden = true
             }
             self.activityIndicator.stopAnimating()
@@ -221,4 +257,80 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         searchMovies(searchBar.text)
     }
     
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        println("collection item count: \(getItemCount())")
+        return getItemCount()
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("movieGridCell", forIndexPath: indexPath) as MovieCollectionViewCell
+
+        // Configure the cell
+        var movie:NSDictionary
+        if !inSearch {
+            movie = self.movies![indexPath.row] as NSDictionary
+        }
+        else {
+            movie = self.searchResult![indexPath.row] as NSDictionary
+        }
+        
+        cell.movieTitle.text = movie["title"] as NSString
+        let synopsis = movie["synopsis"] as NSString
+        let mpaaRating = movie["mpaa_rating"] as NSString
+        
+//        // make mpaa-rating bold
+//        var regularFont = UIFont.systemFontOfSize(12)
+//        var boldFont = UIFont.boldSystemFontOfSize(12)
+//        let attributes :Dictionary = [NSFontAttributeName: regularFont]
+//        let subAttributes :Dictionary = [NSFontAttributeName: boldFont]
+        
+//        let ratingAndSynopsis = "\(mpaaRating) \(synopsis)"
+//        var attrString = NSMutableAttributedString(string: ratingAndSynopsis, attributes: attributes)
+        //        attrString.addAttribute(NSFontAttributeName, value: subAttributes, range: NSMakeRange(0, mpaaRating.length))
+        
+//        cell.synopsis.attributedText = attrString
+        //        cell.synopsis.sizeToFit()
+        let imageUrls = movie["posters"] as NSDictionary
+        let thumbUrl = imageUrls["thumbnail"] as NSString
+        //        cell.posterImage.setImageWithURL(NSURL(string: thumbUrl))
+        var urlReq = NSURLRequest(URL: NSURL(string: thumbUrl)!)
+        
+        cell.posterImage.setImageWithURLRequest(urlReq, placeholderImage: nil,
+            success: { (request: NSURLRequest!, response: NSHTTPURLResponse!, image:UIImage!) -> Void in
+                cell.posterImage.alpha = 0.0
+                cell.posterImage.image = image
+                UIView.animateWithDuration(0.25, animations: {cell.posterImage.alpha = 1.0 })
+            }, failure: { (request:NSURLRequest!, response:NSHTTPURLResponse!, error:NSError!) -> Void in
+                println(error)
+        })
+
+        return cell
+    }
+    
+    func collectionView(collectionView: UICollectionView!,
+        layout collectionViewLayout: UICollectionViewLayout!,
+        sizeForItemAtIndexPath indexPath: NSIndexPath!) -> CGSize {
+            
+            var movie:NSDictionary
+            if !inSearch {
+                movie = self.movies![indexPath.row] as NSDictionary
+            }
+            else {
+                movie = self.searchResult![indexPath.row] as NSDictionary
+            }
+
+            return CGSize(width: 128, height: 200)
+    }
+    
+    private let sectionInsets = UIEdgeInsets(top: 16.0, left: 16.0, bottom: 16.0, right: 16.0)
+    
+    func collectionView(collectionView: UICollectionView!,
+        layout collectionViewLayout: UICollectionViewLayout!,
+        insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+            return sectionInsets
+    }
 }

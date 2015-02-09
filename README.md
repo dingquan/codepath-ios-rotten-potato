@@ -17,7 +17,7 @@ Completed user stories:
  * [x] Required: User sees error message when there's a networking error. 
  * [x] Required: User can pull to refresh the movie list. Guide: Using UIRefreshControl
  * [x] Optional: Add a tab bar for Box Office and DVD. (optional)
-Implement segmented control to switch between list view and grid view (optional)
+ * [x] Optional: Implement segmented control to switch between list view and grid view (optional)
  * [x] Optional: Add a search bar. (optional)
  * [x] Optional: All images fade in (optional)
  * [x] Optional: For the large poster, load the low-res image first, switch to high-res when complete (optional)
