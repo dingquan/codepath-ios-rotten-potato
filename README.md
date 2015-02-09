@@ -30,6 +30,6 @@ If you are in search result, pull-to-refresh will reset it back to the box offic
 
 Walkthrough of all user stories:
 
-![Video Walkthrough](anim_rotten_tomatoes.gif)
+![Video Walkthrough](rottenpotato.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
