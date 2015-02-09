@@ -111,8 +111,17 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
 //        cell.synopsis.sizeToFit()
         let imageUrls = movie["posters"] as NSDictionary
         let thumbUrl = imageUrls["thumbnail"] as NSString
-        cell.posterImage.setImageWithURL(NSURL(string: thumbUrl))
+//        cell.posterImage.setImageWithURL(NSURL(string: thumbUrl))
+        var urlReq = NSURLRequest(URL: NSURL(string: thumbUrl)!)
         
+        cell.posterImage.setImageWithURLRequest(urlReq, placeholderImage: nil,
+            success: { (request: NSURLRequest!, response: NSHTTPURLResponse!, image:UIImage!) -> Void in
+                cell.posterImage.alpha = 0.0
+                cell.posterImage.image = image
+                UIView.animateWithDuration(0.25, animations: {cell.posterImage.alpha = 1.0 })
+            }, failure: { (request:NSURLRequest!, response:NSHTTPURLResponse!, error:NSError!) -> Void in
+                println(error)
+            })
         return cell
     }
     
