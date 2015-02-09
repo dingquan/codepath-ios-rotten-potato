@@ -47,10 +47,11 @@ class DetailsViewController: UIViewController {
             return
         }
         let imageUrls = movie!["posters"] as NSDictionary
+        var thumbnailUrl = imageUrls["thumbnail"] as NSString
         var detailedUrl = imageUrls["detailed"] as NSString
         detailedUrl = detailedUrl.stringByReplacingOccurrencesOfString("_tmb", withString: "_ori")
         let imageUrl = NSURL(string: detailedUrl)
-        self.posterImage.setImageWithURL(imageUrl)
+//        self.posterImage.setImageWithURL(imageUrl)
         
         let year = movie!["year"] as Int
         let name = movie!["title"] as String
@@ -86,6 +87,19 @@ class DetailsViewController: UIViewController {
         self.background.frame = backgroundFrame
 
         self.scrollView.contentSize.height = contentRect.size.height
+        
+        // use thumbnail image first before getting the high resolution image
+        self.posterImage.image = UIImage(data: NSData(contentsOfURL: NSURL(string:thumbnailUrl)!)!)
+        var urlReq = NSURLRequest(URL: imageUrl!)
+        
+        self.posterImage.setImageWithURLRequest(urlReq, placeholderImage: nil,
+            success: { (request: NSURLRequest!, response: NSHTTPURLResponse!, image:UIImage!) -> Void in
+                self.posterImage.alpha = 0.0
+                self.posterImage.image = image
+                UIView.animateWithDuration(0.25, animations: {self.posterImage.alpha = 1.0 })
+            }, failure: { (request:NSURLRequest!, response:NSHTTPURLResponse!, error:NSError!) -> Void in
+                println(error)
+        })
 
         println(self.scrollView.contentSize)
     }
